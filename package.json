@@ -1,6 +1,6 @@
 {
-  "name": "solidity-docgen",
-  "version": "0.2.0-alpha.1",
+  "name": "@augurproject/solidity-docgen",
+  "version": "0.2.0-alpha.2",
   "description": "Solidity API documentation automatic generator.",
   "bin": {
     "solidity-docgen": "./dist/cli.js"
