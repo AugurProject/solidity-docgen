@@ -134,6 +134,8 @@ export async function compile(directory, ignore) {
   const compilerOutput = await compileCustomWrapper(compilerInputJson);
   return compilerOutput;
 
+  // Original code for this function is below
+  
   // const files = await globAsync(path.join(directory, '**/*.sol'), {
   //   ignore: ignore.map(i => path.join(i, '**/*')),
   // });
