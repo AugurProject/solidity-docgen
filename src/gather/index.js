@@ -3,8 +3,8 @@ import _ from 'lodash';
 import { gatherMarkdownDocs } from './markdown';
 import { gatherSolidityDocs } from './solidity';
 
-export async function gatherDocs(directory, ignore) {
-  const contractDocs = await gatherSolidityDocs(directory, ignore);
+export async function gatherDocs(solcOutputFile, directory, ignore) {
+  const contractDocs = await gatherSolidityDocs(solcOutputFile, directory, ignore);
   const markdownDocs = await gatherMarkdownDocs(directory, Object.keys(contractDocs));
 
   const fullDocs = {};
