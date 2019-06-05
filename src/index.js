@@ -9,8 +9,8 @@ import { renderDocs } from './render';
 const mkdirpAsync = promisify(mkdirp);
 const writeFileAsync = promisify(fs.writeFile);
 
-export async function renderDirectoryDocs(directory, ignore) {
-  const docs = await gatherDocs(directory, ignore);
+export async function renderDirectoryDocs(solcOutputFile, directory, ignore) {
+  const docs = await gatherDocs(solcOutputFile, directory, ignore);
   return _.mapValues(docs, renderDocs);
 }
 
@@ -26,7 +26,7 @@ export async function writeDocs(docs, outputDirectory) {
   }));
 }
 
-export async function renderAndWriteDirectoryDocs(directory, outputDirectory, ignore) {
-  const docs = await renderDirectoryDocs(directory, ignore);
+export async function renderAndWriteDirectoryDocs(solcOutputFile, directory, outputDirectory, ignore) {
+  const docs = await renderDirectoryDocs(solcOutputFile, directory, ignore);
   await writeDocs(docs, outputDirectory);
 }

@@ -19,7 +19,7 @@ export function ContractDocs(props) {
     <ul>
       {
         functions.map(fn => {
-          const location = fn.inherited ? relativeURL(fn.definedIn.docsPage) : '';
+          const location = fn.inherited && fn.definedIn && fn.definedIn.docsPage ? relativeURL(fn.definedIn.docsPage) : '';
           const definedIn = fn.inherited ? fn.definedIn.name : name;
 
           return (
@@ -46,7 +46,7 @@ export function ContractDocs(props) {
     <ul>
       { 
         events.map(fn => {
-          const location = fn.inherited ? relativeURL(fn.definedIn.docsPage) : '';
+          const location = fn.inherited && fn.definedIn && fn.definedIn.docsPage ? relativeURL(fn.definedIn.docsPage) : '';
           const definedIn = fn.inherited ? fn.definedIn.name : name;
 
           return (

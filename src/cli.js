@@ -7,6 +7,11 @@ import { renderAndWriteDirectoryDocs } from '.';
 program
   .version(version, '-v, --version')
   .option(
+    '-s, --solcOutputFile <filename>',
+    'solcOutputFile where comppiled solc output is saved',
+    'contracts_full.json',
+  )
+  .option(
     '-c, --contractsDir <directory>',
     'directory where contracts will be taken from',
     'contracts',
@@ -24,9 +29,9 @@ program
   )
   .parse(process.argv);
 
-const { contractsDir, outDir, ignore } = program;
+const { solcOutputFile, contractsDir, outDir, ignore } = program;
 
-renderAndWriteDirectoryDocs(contractsDir, outDir, ignore).catch(function (error) {
+renderAndWriteDirectoryDocs(solcOutputFile, contractsDir, outDir, ignore).catch(function (error) {
   console.error(error);
   process.exitCode = 1;
 });
