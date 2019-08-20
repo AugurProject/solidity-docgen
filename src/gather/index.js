@@ -108,6 +108,8 @@ function addCrosslinks(text, contracts, currentPage, defaultContract) {
     } else {
       const c = contracts[m2 ? m1 : defaultContract];
 
+      if (!c) return match;
+
       const isFn = ({name}) => name === (m2 || m1);
       const f = c.functions.find(isFn) || c.events.find(isFn);
 

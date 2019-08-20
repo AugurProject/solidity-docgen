@@ -47,7 +47,7 @@ async function recursiveReadDir(dir, ignore, allFiles = []) {
 
 async function generateCompilerInput(directory, configuration) {
   const ignoreFile = function(file, stats) {
-    if (['IAugur', 'IAuction', 'IAuctionToken', 'IDisputeOverloadToken', 'IDisputeCrowdsourcer', 'IDisputeWindow', 'IUniverse', 'IMarket', 'IReportingParticipant', 'IReputationToken', 'IOrders', 'IShareToken', 'Order', 'IV2ReputationToken', 'IInitialReporter'].includes(path.parse(file).base.replace(".sol", ""))) return true;
+    if (['IAugur', 'IAuction', 'IAuctionToken', 'IDisputeOverloadToken', 'IDisputeCrowdsourcer', 'IDisputeWindow', 'IUniverse', 'IMarket', 'IReportingParticipant', 'IReputationToken', 'IOrders', 'IShareToken', 'Order', 'IV2ReputationToken', 'IInitialReporter', 'ZeroXExchange'].includes(path.parse(file).base.replace(".sol", ""))) return true;
     return stats.isFile() && path.extname(file) !== ".sol";
   }
   const filePaths = await recursiveReadDir(directory, ignoreFile);
